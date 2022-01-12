@@ -1,5 +1,5 @@
 * {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 header {
@@ -10,6 +10,22 @@ header {
 @media (min-width: 700px) {
   header img {
     margin-top: -23%;
+  }
+}
+
+@media (min-width: 720px) {
+  .competitions-wrapper {
+    max-width: 43.75rem !important;
+  }
+}
+
+.competitions-wrapper .competition {
+  min-height: 8.7rem;
+}
+
+@media (min-width: 570px) {
+  .competitions-wrapper .competition {
+    max-width: 48%;
   }
 }
 /*# sourceMappingURL=style.css.map */

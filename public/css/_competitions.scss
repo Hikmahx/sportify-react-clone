@@ -1,0 +1,14 @@
+.competitions-wrapper{
+  @media(min-width:720px){
+
+    max-width: 43.75rem !important; 
+  }
+
+  .competition{
+    min-height: 8.7rem;
+    
+    @media(min-width:570px){
+      max-width: 48%;
+    }
+  }
+}
