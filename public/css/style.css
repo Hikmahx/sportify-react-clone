@@ -1,4 +1,15 @@
 * {
   font-family: 'Poppins', sans-serif;
 }
+
+header {
+  height: auto;
+  max-height: 19rem;
+}
+
+@media (min-width: 700px) {
+  header img {
+    margin-top: -23%;
+  }
+}
 /*# sourceMappingURL=style.css.map */

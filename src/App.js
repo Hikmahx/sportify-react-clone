@@ -1,8 +1,9 @@
+import Header from "./components/Header";
 
 function App() {
   return (
-    <div style={{fontFamily:'Poppins, sans-serif'}} className="App">
-      <h1>Hello from react</h1>
+    <div className="App min-h-screen ">
+      <Header />
     </div>
   );
 }

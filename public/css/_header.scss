@@ -1,0 +1,10 @@
+header{
+  height: auto;
+  max-height: 19rem;
+
+  @media(min-width:700px){
+    img{
+      margin-top: -23%;
+    }
+  }
+}
