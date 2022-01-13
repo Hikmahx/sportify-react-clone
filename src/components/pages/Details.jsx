@@ -1,37 +1,35 @@
 import React, { useEffect, useState } from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom'
 import Matches from '../Matches'
 import Standings from '../Standings'
 
 
-const Details = ({competitions}) => {
+const Details = () => {
   useEffect(() => {
     getStandings()
+    getMatches()
     tabs()
   }, [])
 
-  const [id, setId] = useState()
   const [stands, setStands] = useState([])
+  const [match, setMatch] = useState([])
+
+  const params = useParams()
 
   const Token = '778acfefb20a4acf9a9286e619e1b24a'
 
-
-  let itemId = parseInt(document.location.pathname.slice(-4))
   const getStandings = async ()=>{
-    localStorage.setItem('id', itemId)
-    if (id === undefined){
-      setId(localStorage.getItem('id'))
-    }else{
-      competitions.forEach(competition=>{
-        if(competition.id === parseInt(document.location.pathname.slice(-4))){
-          setId(competition.id)
-        }
-      })  
-    }
-    const url = `https://api.football-data.org/v2/competitions/2016/standings`
+    const url = `https://api.football-data.org/v2/competitions/${params.id}/standings`
     const res = await fetch(url, { headers: { 'X-Auth-Token': Token } });
     const data = await res.json()
     setStands(data.standings[0].table)
+  }
+
+  const getMatches = async ()=>{
+    const url = `https://api.football-data.org/v2/competitions/${params.id}/matches?matchday=1`
+    const res = await fetch(url, { headers: { 'X-Auth-Token': Token } });
+    const data = await res.json()
+    setMatch(data.matches)
   }
 
   const tabs = ()=>{
@@ -55,14 +53,14 @@ const Details = ({competitions}) => {
   }
 
   return (
-    <div style={{maxWidth: '43.75rem', fontFamily:`'Poppins', sans-serif`}} className="details-wrapper container mx-auto relative z-10 -mt-14 mb-12">
+    <div className="details-wrapper container mx-auto relative z-10 -mt-14 mb-12">
       <div style={{minHeight:"20rem"}} className="rounded border bg-white py-6 px-5 flex flex-col -mt-12">
         <div className="flex items-end text-xl mb-2 whitespace-pre-wrap">
           <Link to={'/'} className=" font-medium cursor-pointer">All Competitions</Link>
           <span className=""> / </span>
           <span className='text-gray-500'>Championship</span>
         </div>
-        <div style={{background: '#dd7c00'}} className="tabs-header h-16 flex items-center text-center">
+        <div style={{background: '#dd7c00'}} className="tabs-header h-16 flex items-center text-center my-5">
           <div className="tab-title active relative text-white flex-1 flex items-center justify-center">
             <h3 className="uppercase">standings</h3>
           </div>
@@ -84,11 +82,18 @@ const Details = ({competitions}) => {
               <div className="flex-1 m-1 points">Pts</div>
             </div>
             {stands.map(stand=>(
-              <Standings stand={stand} />
+              <Standings key={stand.team.id} stand={stand} />
             ))}
           </div>
           <div className="tab-info tabs-matches">
-            <Matches />
+            <div className='matches mb-8 -mx-4'>
+              <h3 className="text-2xl mb-2 mx-4">Matchweek {match.id}</h3>
+              <div className="match-wrapper flex w-full flex-wrap">  
+              {match.map(matchItem=>(
+                <Matches key={matchItem.id} matchItem={matchItem} />
+              ))}              
+              </div>
+            </div>
           </div>
         </div>
       </div>
