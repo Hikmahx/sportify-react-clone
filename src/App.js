@@ -21,13 +21,14 @@ function App() {
   const Token = '778acfefb20a4acf9a9286e619e1b24a'
   
   const getCompetitions = ()=>{
-
-    Ids.forEach(async(id)=>{
-      const url = `https://api.football-data.org/v2/competitions/${id}`
-      const res = await fetch(url, { headers: { 'X-Auth-Token': Token } });
-      const data = await res.json()
-      setCompetitions(competitions=> [...competitions,data])
-    })  
+    if(document.location.pathname === '/'){
+      Ids.forEach(async(id)=>{
+        const url = `https://api.football-data.org/v2/competitions/${id}`
+        const res = await fetch(url, { headers: { 'X-Auth-Token': Token } });
+        const data = await res.json()
+        setCompetitions(competitions=> [...competitions,data])
+      })  
+    }
   }
 
   return (
@@ -38,7 +39,9 @@ function App() {
           <Route exact path='/' element={
           <Home competitions={competitions} />
           }/>   
-          <Route exact path='/competition/:id'  element={<Details />}/> 
+          <Route exact path='/competition/:id'  element={
+          <Details competitions={competitions} />
+          }/> 
         </Routes>  
       </div>
     </Router>
