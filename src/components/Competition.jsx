@@ -6,6 +6,7 @@ import laliga from '../assets/laliga.png'
 import liga from '../assets/liga.png'
 import ligue from '../assets/ligue.png'
 import PL from '../assets/PL.png'
+import { Link } from 'react-router-dom'
 
 
 const Competition = ({competition}) => {
@@ -47,7 +48,7 @@ const Competition = ({competition}) => {
     }
   }
     return (
-        <div className='competition flex py-6 px-7 w-full shadow-xl mb-8 rounded-sm'>
+        <Link to ={`/competition/${competition.id}`} className='competition cursor-pointer flex py-6 px-7 w-full shadow-xl mb-8 rounded-sm'>
             <div className="img-container w-20 flex">
               <img src={emblemsDisplay()} alt="league-icon" />
             </div>
@@ -56,7 +57,7 @@ const Competition = ({competition}) => {
               <p className="text-sm">{competition.area.name}</p>
             </div>
 
-        </div>
+        </Link>
     )
 }
 

@@ -41,7 +41,7 @@ function App() {
           <Route exact path='/' element={
           <Home competitions={competitions} />
           }/>   
-          <Route exact path='/competition/' element={<Details />}/> 
+          <Route exact path='/competition/:id'  element={<Details />}/> 
         </Routes>  
       </div>
     </Router>
