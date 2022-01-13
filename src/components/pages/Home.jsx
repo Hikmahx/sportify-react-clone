@@ -2,10 +2,10 @@ import React from 'react'
 import Competitions from "../Competitions";
 
 
-const Home = () => {
+const Home = ({competitions}) => {
   return (
     <>
-      <Competitions />
+      <Competitions competitions={competitions} />
     </>
   )
 }
