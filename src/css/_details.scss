@@ -1,4 +1,13 @@
 .details-wrapper{
+  font-family: 'Poppins', sans-serif;
+  max-width: 43.75rem;
+  width: 100%;
+
+  // @media(min-width:1023px){
+  //   max-width: 70rem;
+  //   width: 48%;
+  // }
+
   .tabs-header{
     .tab-title{
       height: 100%;

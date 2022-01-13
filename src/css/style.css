@@ -29,6 +29,12 @@ header {
   }
 }
 
+.details-wrapper {
+  font-family: 'Poppins', sans-serif;
+  max-width: 43.75rem;
+  width: 100%;
+}
+
 .details-wrapper .tabs-header .tab-title {
   height: 100%;
 }
