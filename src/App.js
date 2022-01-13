@@ -22,9 +22,6 @@ function App() {
   
   const getCompetitions = ()=>{
 
-    let leagues = [];
-    localStorage.setItem('leagues', leagues) 
-
     Ids.forEach(async(id)=>{
       const url = `https://api.football-data.org/v2/competitions/${id}`
       const res = await fetch(url, { headers: { 'X-Auth-Token': Token } });
