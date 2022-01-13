@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
+import Matches from '../Matches'
 import Standings from '../Standings'
 
 
 const Details = ({competitions}) => {
   useEffect(() => {
     getStandings()
+    tabs()
   }, [])
 
   const [id, setId] = useState()
@@ -32,6 +34,26 @@ const Details = ({competitions}) => {
     setStands(data.standings[0].table)
   }
 
+  const tabs = ()=>{
+    let tabTitle = document.querySelectorAll('.tab-title')
+    let tabInfo = document.querySelectorAll('.tab-info')
+    
+    for (let number = 0; number < tabTitle.length; number++) {
+      tabTitle[number].addEventListener('click', ()=>{
+        tabTitle.forEach(title => {
+          title.classList.remove('active');
+        });
+        tabInfo.forEach(info => {
+          info.classList.remove('active');
+        });
+
+        tabTitle[number].classList.add('active');
+        tabInfo[number].classList.add('active');
+
+      })
+    }
+  }
+
   return (
     <div style={{maxWidth: '43.75rem', fontFamily:`'Poppins', sans-serif`}} className="details-wrapper container mx-auto relative z-10 -mt-14 mb-12">
       <div style={{minHeight:"20rem"}} className="rounded border bg-white py-6 px-5 flex flex-col -mt-12">
@@ -41,15 +63,15 @@ const Details = ({competitions}) => {
           <span className='text-gray-500'>Championship</span>
         </div>
         <div style={{background: '#dd7c00'}} className="tabs-header h-16 flex items-center text-center">
-          <div className="tab-title text-white flex-1">
+          <div className="tab-title active relative text-white flex-1 flex items-center justify-center">
             <h3 className="uppercase">standings</h3>
           </div>
-          <div className="tab-title text-white flex-1">
+          <div className="tab-title relative text-white flex-1 flex items-center justify-center">
             <h3 className="uppercase">matches</h3>
           </div>
         </div>
         <div className="tabs">
-          <div className="tabs-table shadow-2xl rounded-sm mb-8 py-8 px-3 m-1 mt-8">
+          <div className="tab-info tabs-table active shadow-2xl rounded-sm mb-8 py-8 px-3 m-1 mt-8">
             <div style={{minHeight:'4rem'}} className="tbl-row table-title flex text-center border-b-2 border-gray-200 text-gray-400 py-2">
               <div className="flex-1 m-1 position"></div>
               <div style={{minWidth: '200px'}} className="flex-2 m-1 team font-bold text-left">Team</div>
@@ -65,7 +87,9 @@ const Details = ({competitions}) => {
               <Standings stand={stand} />
             ))}
           </div>
-
+          <div className="tab-info tabs-matches">
+            <Matches />
+          </div>
         </div>
       </div>
     </div>
