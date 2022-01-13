@@ -6,6 +6,7 @@ import Standings from '../Standings'
 
 const Details = () => {
   useEffect(() => {
+    getName()
     getStandings()
     getMatches()
     tabs()
@@ -13,6 +14,7 @@ const Details = () => {
 
   const [stands, setStands] = useState([])
   const [match, setMatch] = useState([])
+  const [name, setName] = useState([])
 
   const params = useParams()
 
@@ -30,6 +32,13 @@ const Details = () => {
     const res = await fetch(url, { headers: { 'X-Auth-Token': Token } });
     const data = await res.json()
     setMatch(data.matches)
+  }
+
+  const getName = async ()=>{
+    const url = `https://api.football-data.org/v2/competitions/${params.id}`
+    const res = await fetch(url, { headers: { 'X-Auth-Token': Token } });
+    const data = await res.json()
+    setName(data)
   }
 
   const tabs = ()=>{
@@ -58,7 +67,7 @@ const Details = () => {
         <div className="flex items-end text-xl mb-2 whitespace-pre-wrap">
           <Link to={'/'} className=" font-medium cursor-pointer">All Competitions</Link>
           <span className=""> / </span>
-          <span className='text-gray-500'>Championship</span>
+          <span className='text-gray-400'>{name.name}</span>
         </div>
         <div style={{background: '#dd7c00'}} className="tabs-header h-16 flex items-center text-center my-5">
           <div className="tab-title active relative text-white flex-1 flex items-center justify-center">
@@ -87,7 +96,7 @@ const Details = () => {
           </div>
           <div className="tab-info tabs-matches">
             <div className='matches mb-8 -mx-4'>
-              <h3 className="text-2xl mb-2 mx-4">Matchweek {match.id}</h3>
+              {/* <h3 className="text-2xl mb-2 mx-4">Matchweek {name.currentSeason.currentMatchday}</h3> */}
               <div className="match-wrapper flex w-full flex-wrap">  
               {match.map(matchItem=>(
                 <Matches key={matchItem.id} matchItem={matchItem} />
