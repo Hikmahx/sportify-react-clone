@@ -45,29 +45,55 @@ function App() {
 
   return (
     <Router>
-      <div className="App min-h-screen ">
+      <div className='App min-h-screen '>
         <Header />
         <Routes>
-          <Route exact path='/' element={
-          <Home 
-            competitions={competitions} 
-            loading={loading}
-            setLoading={setLoading}
-            error={error}
-            errMessage= {errMessage}
-            />
-          }/>   
-          <Route exact path='/competition/:id'  element={
-          <Details 
-            loading={loading}
-            setLoading={setLoading}
-            error={error}
-            setErrLor={setError}
-            errMessage= {errMessage}
-            setErrMessage={setErrMessage}
+          <Route
+            exact
+            path='/'
+            element={
+              <Home
+                competitions={competitions}
+                loading={loading}
+                setLoading={setLoading}
+                error={error}
+                errMessage={errMessage}
+              />
+            }
           />
-          }/> 
-        </Routes>  
+          <Route
+            exact
+            path='/competition/:id'
+            element={
+              <Details
+                loading={loading}
+                setLoading={setLoading}
+                error={error}
+                setErrLor={setError}
+                errMessage={errMessage}
+                setErrMessage={setErrMessage}
+              />
+            }
+          />
+        </Routes>
+
+        <div className='attribution py-4'>
+          <div className='mt-5'>
+            <p className='gray-600 text-center mb-6'>
+              Built by{' '}
+              <a href='https://github.com/hikmahx' className='attribution-link p-2'>
+                Hikmah Yousuph
+              </a>
+            </p>
+            <p className='text-center text-xs  mb-6'>
+              {' '}
+              Credits:{' '}
+              <a href='https://www.football-data.org' className='attribution-link p-2'>
+                Football data API
+              </a>
+            </p>
+          </div>
+        </div>
       </div>
     </Router>
   );

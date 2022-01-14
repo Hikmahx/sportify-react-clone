@@ -119,7 +119,7 @@ const Details = ({ loading, setLoading, error, setError, errMessage, setErrMessa
                 </>
                 :
               <div className="tabs">
-                <div ref={tabTable} className="tab-info tabs-table overflow-scroll active shadow-2xl rounded-sm mb-8 py-8 px-3 m-1 mt-8">
+                <div ref={tabTable} className="tab-info tabs-table overflow-scroll lg:overflow-auto active shadow-2xl rounded-sm mb-8 py-8 px-3 m-1 mt-8">
                   <div style={{minHeight:'4rem'}} className="tbl-row table-title flex text-center border-b-2 border-gray-200 text-gray-400 py-2">
                     <div className="flex-1 m-1 position"></div>
                     <div style={{minWidth: '200px', maxWidth:'240px', width:'100%'}} className="flex-2 m-1 team font-bold text-left">Team</div>
@@ -135,7 +135,7 @@ const Details = ({ loading, setLoading, error, setError, errMessage, setErrMessa
                     <Standings key={stand.team.id} stand={stand} />
                   ))}
                 </div>
-                <div ref={tabMatch} className="tab-info tabs-matches overflow-scroll">
+                <div ref={tabMatch} className="tab-info tabs-matches overflow-scroll lg:overflow-auto">
                   <div className='matches mb-8 -mx-4'>
                     {/* <h3 className="text-2xl mb-2 mx-4">Matchweek {name.currentSeason.currentMatchday}</h3> */}
                     <div className="match-wrapper flex w-full flex-wrap">  
