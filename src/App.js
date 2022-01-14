@@ -24,22 +24,22 @@ function App() {
   
   const getCompetitions = ()=>{
     if(document.location.pathname === '/'){
-      try{
-        setLoading(true)
-
-        Ids.forEach(async(id)=>{
+      setLoading(true)
+      
+      Ids.forEach(async(id)=>{
+          try{
           const url = `https://api.football-data.org/v2/competitions/${id}`
           const res = await fetch(url, { headers: { 'X-Auth-Token': Token } });
           const data = await res.json()
           setCompetitions(competitions=> [...competitions,data])
+        }catch(err){
+          setError(true)
+          setErrMessage("Please reload after a minute")
+        }
         })  
 
         setLoading(false)
 
-      }catch(err){
-        setError(true)
-        setErrMessage("Please reload after a minute")
-      }
     }
   }
 
