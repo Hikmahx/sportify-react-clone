@@ -2,7 +2,7 @@ import React from 'react'
 
 const Standings = ({stand}) => {
   return (
-    <div style={{minHeight:'4rem'}} className="tbl-row table-title flex text-center border-b-2 border-gray-200 py-2">
+    <div style={{minHeight:'4rem'}} className="tbl-row table-title flex text-center border-b-2 border-gray-200 py-2 hover:shadow-xl transition-all">
       <div className="flex-1 m-1 position">{stand.position}</div>
       <div style={{width: '200px'}} className="flex items-center flex-2 m-1 team text-left">
         <span className="emblem m-2">

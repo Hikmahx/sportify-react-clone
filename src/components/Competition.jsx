@@ -48,7 +48,7 @@ const Competition = ({competition}) => {
     }
   }
     return (
-        <Link to ={`/competition/${competition.id}`} className='competition cursor-pointer flex py-6 px-7 w-full shadow-xl mb-8 rounded-sm'>
+        <Link to ={`/competition/${competition.id}`} className='competition cursor-pointer flex py-6 px-7 w-full shadow-xl hover:shadow-2xl transition-all mb-8 rounded-sm'>
             <div className="img-container w-20 flex">
               <img src={emblemsDisplay()} alt="league-icon" />
             </div>

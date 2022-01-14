@@ -65,9 +65,9 @@ const Details = () => {
     <div className="details-wrapper container mx-auto relative z-10 -mt-14 mb-12">
       <div style={{minHeight:"20rem"}} className="rounded border bg-white py-6 px-5 flex flex-col -mt-12">
         <div className="flex items-end text-xl mb-2 whitespace-pre-wrap">
-          <Link to={'/'} className=" font-medium cursor-pointer">All Competitions</Link>
-          <span className=""> / </span>
-          <span className='text-gray-400'>{name.name}</span>
+          <Link to={'/'} className="home-link font-medium text-lg cursor-pointer p-2">All Competitions</Link>
+          <span className="py-2"> / </span>
+          <span className='text-gray-400 text-lg py-2'>{name.name}</span>
         </div>
         <div style={{background: '#dd7c00'}} className="tabs-header h-16 flex items-center text-center my-5">
           <div className="tab-title active relative text-white flex-1 flex items-center justify-center">

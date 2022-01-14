@@ -35,6 +35,20 @@ header {
   width: 100%;
 }
 
+.details-wrapper .home-link {
+  color: #292a2a;
+  -webkit-box-shadow: inset 0 -2px 0 0 #347ab8;
+          box-shadow: inset 0 -2px 0 0 #347ab8;
+  -webkit-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
+}
+
+.details-wrapper .home-link:hover {
+  color: #fff;
+  -webkit-box-shadow: inset 0 -3rem 0 0 #347ab8;
+          box-shadow: inset 0 -3rem 0 0 #347ab8;
+}
+
 .details-wrapper .tabs-header .tab-title {
   height: 100%;
 }
