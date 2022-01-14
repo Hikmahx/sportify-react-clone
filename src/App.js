@@ -16,7 +16,7 @@ function App() {
   ])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
-  const [errMessage, setErrMessage] = useState('')
+  const [errMessage, setErrMessage] = useState('Please reload after a minute')
   const [competitions, setCompetitions] = useState([])
 
 
@@ -69,7 +69,7 @@ function App() {
                 loading={loading}
                 setLoading={setLoading}
                 error={error}
-                setErrLor={setError}
+                setError={setError}
                 errMessage={errMessage}
                 setErrMessage={setErrMessage}
               />
