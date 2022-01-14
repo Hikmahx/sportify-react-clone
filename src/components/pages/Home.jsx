@@ -2,10 +2,10 @@ import React from 'react'
 import Competitions from "../Competitions";
 
 
-const Home = ({competitions}) => {
+const Home = ({competitions, loading, error, errMessage}) => {
   return (
     <>
-      <Competitions competitions={competitions} />
+    <Competitions competitions={competitions} loading={loading} error={error} errMessage={errMessage} />
     </>
   )
 }

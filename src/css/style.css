@@ -113,4 +113,49 @@ header {
   height: -moz-fit-content;
   height: fit-content;
 }
+
+.loading-container {
+  min-height: 400px;
+}
+
+.loading-container .loading-wrapper .ripples div {
+  -webkit-animation: ripples 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+          animation: ripples 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+.loading-container .loading-wrapper .ripples div:first-child {
+  border-color: #93dbe9;
+}
+
+.loading-container .loading-wrapper .ripples div:nth-child(2) {
+  border-color: #689cc5;
+  -webkit-animation-delay: -.5s;
+          animation-delay: -.5s;
+}
+
+@-webkit-keyframes ripples {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(2);
+            transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes ripples {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(2);
+            transform: scale(2);
+    opacity: 0;
+  }
+}
 /*# sourceMappingURL=style.css.map */

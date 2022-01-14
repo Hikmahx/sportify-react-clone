@@ -1,0 +1,31 @@
+.loading-container{
+  min-height: 400px;
+
+  .loading-wrapper{
+    .ripples{
+
+      div{
+        animation: ripples 1s cubic-bezier(0,.2,.8,1) infinite;    
+
+        &:first-child{
+          border-color: #93dbe9;
+        }
+
+        &:nth-child(2){
+          border-color: #689cc5;
+          animation-delay: -.5s;
+        }
+      }
+    }
+  }
+
+  @keyframes ripples {
+    0%{
+      transform: scale(0);
+      opacity: 1;
+    }100%{
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+}
