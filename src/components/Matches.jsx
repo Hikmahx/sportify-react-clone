@@ -9,7 +9,7 @@ const Matches = ({matchItem}) => {
 
 
   return (
-    <div className='match w-full md:w-1/2 p-4 flex items-center border-b-2 odd:border-r-2 border-gray-300 hover:shadow-2xl transition-all'>
+    <div className='match w-full md:w-1/2 p-4 flex items-center border-b-2 sm:odd:border-r-2 border-gray-300 hover:shadow-2xl transition-all'>
       <div className="match-info w-2/3">
         <div className="home-team flex items-center mb-5">
           <img className="w-6 mr-3" src={homeTeam} alt="home-team" />
